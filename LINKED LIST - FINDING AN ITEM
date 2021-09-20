@@ -1,0 +1,22 @@
+myLinkedList = [27, 19, 36, 42, 16, None, None, None, None, None, 
+None, None]
+3	myLinkedListPointers = [-1, 0, 1, 2, 3 ,6 ,7 ,8 ,9 ,10 ,11, -1]
+4	startPointer = 4
+5	nullPointer = -1 
+6	def find(itemSearch):
+7	    found = False 
+8	    itemPointer = startPointer
+9	    while itemPointer != nullPointer and not found:
+10	        if myLinkedList [itemPointer] == itemSearch:
+11	            found = True
+12	        else: 
+13	              itemPointer = myLinkedListPointers[itemPointer]
+14	    return itemPointer 
+15	
+16	#enter item to search for
+17	item = int(input("Please enter item to be found "))
+18	result = find(item)
+19	if result != -1: 
+20	    print("Item found")
+21	else:
+22	    print("Item not found")
