@@ -1,0 +1,30 @@
+myLinkedList = [27, 19, 36, 42, 16, None, None, None, None, None, 
+3	None, None]
+4	myLinkedListPointers = [-1, 0, 1,2,3,6,7,8,9,10,11,-1]
+5	nullPointer = -1
+6	startPointer = 4
+7	heapStartPointer = 5
+8	tempPointer = 0
+9	itemDelete = 36
+10	def delete(itemDelete) :
+11	    global startPointer
+12	    global heapStartPointer
+13	    if startPointer == nullPointer :
+14	        print("Linked List empty")
+15	    else : 
+16	        index = startPointer
+17	        while myLinkedList[index] != itemDelete and index != 
+nullPointer :
+18	            oldindex = index 
+19	            index = myLinkedListPointers[index] 
+20	        if index == nullPointer : 
+21	            print("Item ", itemDelete, " not found")
+22	        else : 
+23	            myLinkedList[index] = None 
+24	            tempPointer = myLinkedListPointers[index]  
+25	            myLinkedListPointers[index] =  heapStartPointer
+26	            heapStartPointer = index 
+27	            myLinkedListPointers[oldindex] = tempPointer
+28	  
+29	
+30	delete(itemDelete)
