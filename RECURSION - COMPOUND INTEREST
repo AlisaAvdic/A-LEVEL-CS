@@ -1,0 +1,8 @@
+def compoundInt(principal, rate, years) : 
+  if years == 0 : 
+    total = principal 
+  else : 
+    total = compoundInt(principal * rate, rate, years - 1)
+  return total 
+ 
+print(compoundInt(100, 1.05, 3))
