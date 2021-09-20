@@ -1,0 +1,21 @@
+queue = [1,2,3,4,5,6,7,8,9,10, None, None, None] 
+2	frontPointer = 0 
+3	queueLength = 10 
+4	item = 0 
+5	
+6	def deQueue(item) : 
+7	    global queueLength, frontPointer  
+8	    if queueLength == 0 : 
+9	        print("Queue is empty, cannot dequeue") 
+10	        
+11	    else : 
+12	        item = queue[frontPointer] 
+13	        if frontPointer == len(queue) - 1 : 
+14	            frontPointer = 0 
+15	        else : 
+16	            queue[frontPointer] = None 
+17	            frontPointer = frontPointer + 1 
+18	
+19	    queueLength = queueLength - 1 
+20	            
+21	deQueue(item)
