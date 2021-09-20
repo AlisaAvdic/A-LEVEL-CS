@@ -1,0 +1,21 @@
+queue = [1,2,3,4,5,6,7,8,9,10, None, None, None] 
+2	frontPointer = 0 
+3	rearPointer = 9
+4	item = 11
+5	queueFull = 12 
+6	queueLength = 9 
+7	    
+8	def enQueue(item) : 
+9	    global queueLength, rearPointer 
+10	    if queueLength < queueFull :
+11	        if rearPointer < len(queue) - 1 :
+12	            rearPointer = rearPointer + 1 
+13	     
+14	        else : 
+15	            rearPointer = 0 
+16	        queueLength = queueLength + 1 
+17	        queue[rearPointer] = item 
+18	    else : 
+19	        print("Queue is full, cannot enqueue") 
+20	           
+21	enQueue(item)
