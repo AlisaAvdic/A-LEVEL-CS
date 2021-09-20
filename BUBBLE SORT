@@ -1,0 +1,16 @@
+def bubblesort(myList) :
+ top = len(myList)
+ done = False
+ while done == False :
+   done = True
+   for i in range(top-1):
+           if myList[i] > myList[i+1]:
+               temp = myList[i]
+               myList[i] = myList[i + 1]
+               myList[i + 1] = temp
+               done = False
+ return myList
+ 
+myList = [70, 46, 43, 27, 57, 41, 45, 21, 14]
+bubblesort(myList)
+print(myList)
