@@ -1,0 +1,20 @@
+myLinkedList = [27, 19, 36, 42, 16, None, None, None, None, None, None, None]
+myLinkedListPointers = [-1, 0, 1,2,3,6,7,8,9,10,11,-1]
+nullPointer = -1
+startPointer = 4
+heapStartPointer = 5
+tempPointer = 0
+itemAdd = 18
+	def insert(itemAdd) :
+	    global startPointer
+	    global heapStartPointer
+	    if heapStartPointer == nullPointer :
+	        print("Linked List full")
+	    else : 
+	        tempPointer = startPointer 
+	        startPointer = heapStartPointer 
+	    heapStartPointer = myLinkedListPointers[heapStartPointer]
+	    myLinkedList[startPointer] = itemAdd
+	    myLinkedListPointers[startPointer] = tempPointer
+	
+	insert(itemAdd)
