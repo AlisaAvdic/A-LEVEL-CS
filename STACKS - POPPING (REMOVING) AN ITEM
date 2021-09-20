@@ -1,0 +1,15 @@
+stack = [1,2,3,4,5,6,7,8,9,10]  
+2	basePointer = 0 
+3	topPointer = 9 
+4	stackfull = 9 
+5	
+6	def pop() : 
+7	    global topPointer, basePointer, item 
+8	    if topPointer == basePointer - 1 :
+9	        print("Stack is empty, cannot pop") 
+10	    else : 
+11	        item = stack[topPointer]
+12	        stack[topPointer] = None
+13	        topPointer = topPointer - 1 
+14	        
+15	pop()
