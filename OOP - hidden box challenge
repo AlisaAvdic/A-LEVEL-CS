@@ -1,0 +1,99 @@
+#Q1 (a)
+
+TheData = [20,3,4,8,12,99,4,26,4]
+
+#(b)
+
+def InsertionSort(TheData) :
+    for Count in range(0, len(TheData)) :
+        DataToInsert = TheData[Count]
+        Inserted = 0
+        NextValue = Count - 1
+        while(NextValue >= 0 and Inserted != 1) :
+            if DataToInsert < TheData[NextValue] :
+                TheData[NextValue + 1] = TheData[NextValue]
+                NextValue = NextValue - 1
+                TheData[NextValue + 1] = DataToInsert
+            else :
+                Inserted = 1
+
+#(c)
+
+def print_data(TheData) :
+    for i in range(0, len(TheData)) :
+        print(TheData[i])
+
+# (d)-(i)
+
+print("Before")
+print_data(TheData)
+InsertionSort(TheData)
+print("After")
+print_data(TheData)
+
+# (e) - (i)
+
+def find_array(TheData) :
+    searchItem = int(input("Please input a number : "))
+    for i in range(0, len(TheData)) :
+        if i == searchItem :
+            found = True
+            print("found")
+        else :
+            found = False
+            print("not found")
+
+find_array(TheData)
+
+# Q2 (a)
+
+class HiddenBox :
+    # BoxName = string
+    # Creator = string
+    # DateHidden = Date
+    # GameLocation = string
+    # LastFinds = [10][2] string
+    # Active = boolean
+
+# (b)
+
+    def __init__(self, BoxName, Creator, DateHidden, GameLocation):
+        self.BoxName = BoxName
+        self.Creator = Creator
+        self.DateHidden = DateHidden
+        self.GameLocation = GameLocation
+        self.Active = False
+        self.LastFinds = [["" for x in range(0,2)] for y in range(0, 10)]
+
+# (c)
+    def GetBoxName(self):
+        return self.BoxName
+
+    def GetGameLocation(self):
+        return self.GameLocation
+
+# (d) - (i)
+
+TheBoxes = [HiddenBox("","","","")for i in range(0, 10000)]
+
+NumBoxes = []
+
+def NewBox(TheBoxes, NumBoxes) :
+        BoxName = input("Enter the name of the box : ")
+        Creator = input("Enter the creator's name : ")
+        DateHidden = input("Enter the date the box was hidden : ")
+        GameLocation = input("Enter the location of the box : ")
+        TheBoxes[NumBoxes] = HiddenBox(BoxName, Creator, DateHidden, GameLocation)
+        return(NumBoxes + 1)
+
+NumBoxes = NewBox(TheBoxes, NumBoxes)
+
+# (e)
+
+class PuzzleBox(HiddenBox) :
+    def __init__(self, BoxName, Creator, DateHidden, GameLocation, PuzzleText, Solution):
+        self.PuzzleText = PuzzleText
+        self.Solution = Solution
+        HiddenBox.__init__(BoxName, Creator, DateHidden, GameLocation)
+        #PuzzleText = string
+        #Solution = string
