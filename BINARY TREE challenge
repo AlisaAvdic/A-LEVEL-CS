@@ -1,0 +1,61 @@
+tree = []
+for x in range(20) : 
+  tree.append(None)
+
+class Node : 
+  def __init__(self, DataValue, LeftPointer, RightPointer) : 
+    self.DataValue = DataValue 
+    self.LeftPointer = LeftPointer
+    self.RightPointer = RightPointer
+  
+
+def CreateTree(NodeData) :  
+    global NextNode 
+    NextNode = 0 
+    tree[NextNode] = (Node(NodeData, -1, -1))
+    NextNode += 1 
+  
+def AttachLeft(NodeData, ParentNode): 
+    global NextNode 
+    tree[NextNode] = (Node(NodeData, -1, -1))
+    tree[ParentNode].LeftPointer = NextNode 
+    NextNode += 1 
+  
+def AttachRight(NodeData, ParentNode) : 
+    global NextNode 
+    tree[NextNode] = (Node(NodeData, -1, -1))
+    tree[ParentNode].RightPointer = NextNode 
+    NextNode += 1 
+  
+def printTreeLeft(branch) : 
+    global NextNode 
+    print(branch.DataValue) 
+    if branch.LeftPointer != -1 : 
+      printTreeLeft(tree[branch.LeftPointer]) 
+
+def print_tree(tree, index) : 
+  if index == -1 : 
+    return None 
+  Node = tree[index]
+
+  print(Node.DataValue)
+  print_tree(tree, Node.LeftPointer)
+  print_tree(tree, Node.RightPointer)
+
+
+
+CreateTree("Red")
+AttachLeft("Blue", 0)
+AttachRight("Green", 0)
+AttachRight("Black", 2)
+AttachLeft("Brown", 2)
+AttachLeft("Peach", 3)
+AttachLeft("Yellow", 1)
+AttachRight("Purple", 1)
+AttachLeft("White", 6)
+AttachLeft("Pink", 7)
+AttachLeft("Grey", 9)
+AttachRight("Orange", 9)
+
+printTreeLeft(tree[0])
+#print_tree(tree, 0)
